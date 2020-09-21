@@ -340,6 +340,10 @@ describe('test/logrotator.test.js', () => {
       const schedule = path.join(__dirname, '../app/schedule/rotate_by_hour.js');
       assert(app.schedules[schedule].schedule.disable);
     });
+    it('should default enable rotate_by_day ', () => {
+      const schedule = path.join(__dirname, '../app/schedule/rotate_by_file.js');
+      assert(!app.schedules[schedule].schedule.disable);
+    });
   });
 
   describe('rotateLogDirs not exist', () => {

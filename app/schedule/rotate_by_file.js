@@ -11,6 +11,7 @@ module.exports = app => {
     schedule: {
       type: 'worker', // only one worker run this task
       cron: '1 0 0 * * *', // run every day at 00:00
+      disable: app.config.logrotator.disableRotateByDay,
     },
 
     async task() {
